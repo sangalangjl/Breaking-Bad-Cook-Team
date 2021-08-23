@@ -44,14 +44,43 @@ const nameDropdown = document.querySelectorAll(".names")
 const nameDropdown1 = nameDropdown[0]
 const nameDropdown2 = nameDropdown[1]
 
-console.log(nameDropdown2)
-
 function addCharacterOptions1(character) {
     const removeWalterArray = character.slice(1)
     removeWalterArray.forEach(character => {
         const characterOptions = document.createElement('option')
         characterOptions.textContent = character.name
         nameDropdown1.append(characterOptions);
+    })
+}
+
+function changeNameEvent(character) {
+    nameDropdown1.addEventListener('change', (event) => {
+        const inputValue = nameDropdown1.value;
+        const inputImage = document.getElementById("CharacterPic1")
+
+        for(i = 0; i < character.length; i++){
+            if(character[i].name === inputValue){
+                inputImage.src = character[i].img
+                displayCharacterDetails1(character)
+            }
+        }
+        if (inputValue === "Pick a character") {
+            alert("Pick a character")
+        }
+    })
+    nameDropdown2.addEventListener('change', (event) => {
+        const inputValue = nameDropdown2.value;
+        const inputImage = document.getElementById("CharacterPic3")
+
+        for(i = 0; i < character.length; i++){
+            if(character[i].name === inputValue){
+                inputImage.src = character[i].img
+                displayCharacterDetails2(character)
+            }
+        }
+        if (inputValue === "Pick a character") {
+            alert("Pick a character")
+        }
     })
 }
 
@@ -64,16 +93,17 @@ function addCharacterOptions2(character) {
     })
 }
 
-function changeNameEvent(character) {
-    nameDropdown1.addEventListener('change', (event) => {
-        const inputValue = nameDropdown1.value;
-        for(i = 0; i < character.length; i++){
-            if(character[i].name === inputValue){
-                console.log(character[i])
-            }
-        }
-    })
+function displayCharacterDetails1(character) {
+    const name = document.querySelector("div#Character1 h1")
+    name.textContent = character[i].name
+    
+    const ul = name.nextElementSibling
+    const occupationLi = ul.firstChild
+    occupationLi.textContent = character[i].occupation
+    //console.log(occupation)
 }
 
-// change img src
-// add details to details div
+function displayCharacterDetails2(character) {
+    const name = document.querySelector("div#Character3 h1")
+    name.textContent = character[i].name
+}
