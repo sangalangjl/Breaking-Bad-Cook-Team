@@ -15,3 +15,16 @@ function createQuote(randomQuote) {
 }
 
 getQuote();
+getWalterWhite()
+
+function getWalterWhite(){
+    fetch(charactersURL)
+    .then(resp => resp.json())
+    .then(walter => appendWalter(walter))
+}
+
+function appendWalter(walter){
+    const walterImg = document.querySelector('img#walterImg')
+    walterImg.src = walter[0].img;
+    walterImg.alt = "Walter White"
+}
