@@ -15,16 +15,31 @@ function createQuote(randomQuote) {
 }
 
 getQuote();
-getWalterWhite()
+getCharacters()
 
-function getWalterWhite(){
+function getCharacters(){
     fetch(charactersURL)
     .then(resp => resp.json())
-    .then(walter => appendWalter(walter))
+    .then(character => { appendCharacters(character) 
+        addCharacterOptions(character)
+    })
 }
 
-function appendWalter(walter){
+function appendCharacters(character){
+    
     const walterImg = document.querySelector('img#walterImg')
-    walterImg.src = walter[0].img;
+    walterImg.src = character[0].img;
     walterImg.alt = "Walter White"
+
+    const Character1 = document.querySelector('img#CharacterPic1')
+    Character1.src = character.img
+}
+
+function addCharacterOptions(character) {
+    const removeWalterArray = character.slice(1)
+    removeWalterArray.forEach(character => {
+        const characterOptions = document.createElement('option')
+        characterOptions.textContent = character.name
+        console.log(characterOptions)
+    })
 }
