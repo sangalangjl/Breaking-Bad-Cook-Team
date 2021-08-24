@@ -1,10 +1,57 @@
-img {
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    text-align: center;
+    margin: 0 auto;
+    background-color: black;
+}
+
+#logo {
+    width: 1000px;
+    height: auto;
+}
+
+.ChacterPics {
     margin: 3em;
     display: block;
     width: 200px;
     height: auto;
 }
 
-html {
-    scroll-behavior: smooth;
+.CharacterBar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+body h1 {
+    text-align: center;
+}
+
+.CharacterDetails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#Character2 button {
+    text-align: center;
+}
+
+form {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+input[type="text"]:not(.edit-input) {
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    padding: 12px 20px;
+    margin: 8px 0;
 }
