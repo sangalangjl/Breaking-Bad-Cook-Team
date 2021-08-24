@@ -8,10 +8,14 @@ function getQuote() {
 }
 
 function createQuote(randomQuote) {
+    const button = document.querySelector('button')
     const selectQuote = document.querySelector("p#quote")
     const selectAuthor = document.querySelector("p#author")
-    selectQuote.textContent = `"${randomQuote[0].quote}"`
-    selectAuthor.textContent = `-${randomQuote[0].author}`
+    button.addEventListener('click', event => {
+        getQuote();
+        selectQuote.textContent = `"${randomQuote[0].quote}"`
+        selectAuthor.textContent = `-${randomQuote[0].author}`
+    })
 }
 
 getQuote();
@@ -75,7 +79,7 @@ function changeNameEvent(character) {
         for(i = 0; i < character.length; i++){
             if(character[i].name === inputValue){
                 inputImage.src = character[i].img
-                displayCharacterDetails2(character)
+                displayCharacterDetails3(character)
             }
         }
         if (inputValue === "Pick a character") {
@@ -98,12 +102,36 @@ function displayCharacterDetails1(character) {
     name.textContent = character[i].name
     
     const ul = name.nextElementSibling
-    const occupationLi = ul.firstChild
-    occupationLi.textContent = character[i].occupation
-    //console.log(occupation)
-}
+    const occupationLi = ul.querySelector(".Occupation")
+    occupationLi.textContent = `Occupation: ${character[i].occupation}`
+    
+    const birthdayLi = ul.querySelector(".Birthday")
+    birthdayLi.textContent = `Birthday: ${character[i].birthday}`
 
-function displayCharacterDetails2(character) {
+    const actorLi = ul.querySelector(".Actor")
+    actorLi.textContent = `Actor Name: ${character[i].portrayed}`
+
+    const seasonsLi = ul.querySelector(".Seasons")
+    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`}
+
+// function displayCharacterDetails2(character) {
+//     const name = document.querySelector("div#Character3 h1")
+//     name.textContent = character[i].name
+// }
+
+function displayCharacterDetails3(character) {
     const name = document.querySelector("div#Character3 h1")
     name.textContent = character[i].name
-}
+    
+    const ul = name.nextElementSibling
+    const occupationLi = ul.querySelector(".Occupation")
+    occupationLi.textContent = `Occupation: ${character[i].occupation}`
+    
+    const birthdayLi = ul.querySelector(".Birthday")
+    birthdayLi.textContent = `Birthday: ${character[i].birthday}`
+
+    const actorLi = ul.querySelector(".Actor")
+    actorLi.textContent = `Actor Name: ${character[i].portrayed}`
+
+    const seasonsLi = ul.querySelector(".Seasons")
+    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`}
