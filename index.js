@@ -112,12 +112,9 @@ function displayCharacterDetails1(character) {
     actorLi.textContent = `Actor Name: ${character[i].portrayed}`
 
     const seasonsLi = ul.querySelector(".Seasons")
-    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`}
+    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`
+}
 
-// function displayCharacterDetails2(character) {
-//     const name = document.querySelector("div#Character3 h1")
-//     name.textContent = character[i].name
-// }
 
 function displayCharacterDetails3(character) {
     const name = document.querySelector("div#Character3 h1")
@@ -134,4 +131,5 @@ function displayCharacterDetails3(character) {
     actorLi.textContent = `Actor Name: ${character[i].portrayed}`
 
     const seasonsLi = ul.querySelector(".Seasons")
-    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`}
+    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`
+}
