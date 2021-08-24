@@ -8,7 +8,7 @@ function getQuote() {
 }
 
 function createQuote(randomQuote) {
-    const button = document.querySelector('button')
+    const button = document.querySelector("#getRandomQuote")
     const selectQuote = document.querySelector("p#quote")
     const selectAuthor = document.querySelector("p#author")
     button.addEventListener('click', event => {
@@ -17,31 +17,29 @@ function createQuote(randomQuote) {
         selectAuthor.textContent = `-${randomQuote[0].author}`
     })
 }
-
 getQuote();
-getCharacters()
+getCharacters();
 
 function getCharacters(){
     fetch(charactersURL)
     .then(resp => resp.json())
     .then(character => { 
         // console.log(character[1].name)
-        appendCharacters(character) 
         addCharacterOptions1(character)
         addCharacterOptions2(character)
         changeNameEvent(character)
     })
 }
 
-function appendCharacters(character){
-    
-    const walterImg = document.querySelector('img#walterImg')
-    walterImg.src = character[0].img;
-    walterImg.alt = "Walter White"
+const walterImg = document.querySelector('img#walterImg')
 
-    const Character1 = document.querySelector('img#CharacterPic1')
-    Character1.src = character.img
-}
+// function appendCharacters(character){
+//     walterImg.src = character[0].img;
+//     walterImg.alt = "Walter White"
+
+//     const Character1 = document.querySelector('img#CharacterPic1')
+//     Character1.src = character.img
+// }
 
 const nameDropdown = document.querySelectorAll(".names")
 
@@ -133,3 +131,27 @@ function displayCharacterDetails3(character) {
     const seasonsLi = ul.querySelector(".Seasons")
     seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`
 }
+
+function formSubmit() {
+    const form = document.querySelector("form")
+    form.addEventListener('submit', event => {
+        event.preventDefault()
+        
+        const yourNameInput = document.querySelector("#WalterWhite h1")
+        yourNameInput.textContent = form[0].value
+
+        const occupationLi = document.querySelector("#WalterWhite li")
+        occupationLi.textContent = `Occupation: ${form[1].value}`
+
+        const birthdayLi = occupationLi.nextElementSibling
+        birthdayLi.textContent = `Birthday: ${form[2].value}`
+
+        const actorLi = birthdayLi.nextElementSibling
+        actorLi.textContent = `Favorite Episode: ${form[3].value}`
+
+        const seasonsLi = actorLi.nextElementSibling
+        seasonsLi.remove()
+    })
+}
+
+formSubmit()
