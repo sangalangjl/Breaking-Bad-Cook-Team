@@ -133,6 +133,9 @@ function displayCharacterDetails3(character) {
 }
 
 function formSubmit() {
+
+    // figure out alert for empty input fields
+
     const form = document.querySelector("form")
     form.addEventListener('submit', event => {
         event.preventDefault()
@@ -149,9 +152,18 @@ function formSubmit() {
         const actorLi = birthdayLi.nextElementSibling
         actorLi.textContent = `Favorite Episode: ${form[3].value}`
 
+        walterImg.src = form[4].value;
+
         const seasonsLi = actorLi.nextElementSibling
-        seasonsLi.remove()
+
+        if(!!seasonsLi === true){
+            seasonsLi.remove()
+        }
+
+        event.target.reset()
     })
 }
+
+
 
 formSubmit()
