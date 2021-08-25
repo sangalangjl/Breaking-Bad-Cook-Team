@@ -100,28 +100,57 @@ const formSubmit = () => {
     const form = document.querySelector("form")
     form.addEventListener('submit', event => {
         event.preventDefault()
+
+        const name = form[0].value
+        const occupation = form[1].value
+        const birthday = form[2].value
+        const favoriteEpisode = form[3].value
+        const img = form[4].value
         
         const yourNameInput = document.querySelector("#WalterWhite h1")
-        yourNameInput.textContent = form[0].value
+        yourNameInput.textContent = name
 
         const occupationLi = document.querySelector("#WalterWhite li")
-        occupationLi.textContent = `Occupation: ${form[1].value}`
+        occupationLi.textContent = `Occupation: ${occupation}`
 
         const birthdayLi = occupationLi.nextElementSibling
-        birthdayLi.textContent = `Birthday: ${form[2].value}`
+        birthdayLi.textContent = `Birthday: ${birthday}`
 
         const actorLi = birthdayLi.nextElementSibling
-        actorLi.textContent = `Favorite Episode: ${form[3].value}`
+        actorLi.textContent = `Favorite Episode: ${favoriteEpisode}`
 
         walterImg.src = form[4].value;
-
+        
         const seasonsLi = actorLi.nextElementSibling
 
         if(!!seasonsLi === true){
             seasonsLi.remove()
         }
         formAlert(form)
+        const newUserObj = {
+            Name: name,
+            Occupation: occupation,
+            Birthday: birthday,
+            FavoriteEpisode: favoriteEpisode,
+            Img: img
+        }
+        const configObj = {
+            method: "POST", 
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(newUserObj)
+        }
+
+        fetchDbJson(configObj)
     })
+}
+
+const fetchDbJson = (configObj) => {
+    fetch('http://localhost:3000/characters', configObj)
+    .then(respToJson)
+    .then(submitArr => console.log(submitArr))
 }
 
 const formAlert = (form) => {

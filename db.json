@@ -1,1 +1,12 @@
-{"characters":[]}
+{
+  "characters": [
+    {
+      "Name": "Perrin Goldeneyes",
+      "Occupation": "Blacksmith, General",
+      "Birthday": "Unknown",
+      "FavoriteEpisode": "The Fly",
+      "Img": "https://static.wikia.nocookie.net/wot/images/b/bd/Perrin_aybara_wolf_king_by_reddera-d993otl.jpg/revision/latest?cb=20160605153745",
+      "id": 1
+    }
+  ]
+}
