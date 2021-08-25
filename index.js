@@ -119,14 +119,14 @@ const formSubmit = () => {
         const actorLi = birthdayLi.nextElementSibling
         actorLi.textContent = `Favorite Episode: ${favoriteEpisode}`
 
-        walterImg.src = form[4].value;
+        walterImg.src = img;
         
         const seasonsLi = actorLi.nextElementSibling
 
         if(!!seasonsLi === true){
             seasonsLi.remove()
         }
-        formAlert(form)
+
         const newUserObj = {
             Name: name,
             Occupation: occupation,
@@ -144,8 +144,16 @@ const formSubmit = () => {
         }
 
         fetchDbJson(configObj)
+        const newCookImg = document.createElement('img')
+        newCookImg.src = walterImg.src;
+
+        const pastCooksDiv = document.querySelector('#PastCooks')
+        pastCooksDiv.append(newCookImg)
+        formAlert(form)
     })
 }
+
+
 
 const fetchDbJson = (configObj) => {
     fetch('http://localhost:3000/characters', configObj)
