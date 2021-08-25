@@ -1,13 +1,15 @@
 const charactersURL = "https://breakingbadapi.com/api/characters"
 const quotesURL = "https://breakingbadapi.com/api/quote/random"
 
-function getQuote() {
+const respToJson = resp => resp.json()
+
+const getQuote = () => {
     fetch(quotesURL)
-    .then(response => response.json())
+    .then(respToJson)
     .then(randomQuote => createQuote(randomQuote))
 }
 
-function createQuote(randomQuote) {
+const createQuote = randomQuote => {
     const button = document.querySelector("#getRandomQuote")
     const selectQuote = document.querySelector("p#quote")
     const selectAuthor = document.querySelector("p#author")
@@ -17,53 +19,39 @@ function createQuote(randomQuote) {
         selectAuthor.textContent = `-${randomQuote[0].author}`
     })
 }
-getQuote();
-getCharacters();
 
-function getCharacters(){
+const getCharacters = () => {
     fetch(charactersURL)
-    .then(resp => resp.json())
-    .then(character => { 
-        // console.log(character[1].name)
-        addCharacterOptions1(character)
-        addCharacterOptions2(character)
-        changeNameEvent(character)
+    .then(respToJson)
+    .then(characterArr => { 
+        addCharacterOptions(characterArr, nameDropdown1)
+        addCharacterOptions(characterArr, nameDropdown2)
+        changeNameEvent(characterArr)
     })
 }
 
-const walterImg = document.querySelector('img#walterImg')
-
-// function appendCharacters(character){
-//     walterImg.src = character[0].img;
-//     walterImg.alt = "Walter White"
-
-//     const Character1 = document.querySelector('img#CharacterPic1')
-//     Character1.src = character.img
-// }
-
 const nameDropdown = document.querySelectorAll(".names")
-
 const nameDropdown1 = nameDropdown[0]
 const nameDropdown2 = nameDropdown[1]
 
-function addCharacterOptions1(character) {
-    const removeWalterArray = character.slice(1)
+const addCharacterOptions = (characterArr, dropdown) => {
+    const removeWalterArray = characterArr.slice(1)
     removeWalterArray.forEach(character => {
         const characterOptions = document.createElement('option')
         characterOptions.textContent = character.name
-        nameDropdown1.append(characterOptions);
+        dropdown.append(characterOptions);
     })
 }
 
-function changeNameEvent(character) {
+const changeNameEvent = characterArr => {
     nameDropdown1.addEventListener('change', (event) => {
         const inputValue = nameDropdown1.value;
         const inputImage = document.getElementById("CharacterPic1")
 
-        for(i = 0; i < character.length; i++){
-            if(character[i].name === inputValue){
-                inputImage.src = character[i].img
-                displayCharacterDetails1(character)
+        for(i = 0; i < characterArr.length; i++){
+            if(characterArr[i].name === inputValue){
+                inputImage.src = characterArr[i].img
+                displayCharacterDetails(characterArr, name1)
             }
         }
         if (inputValue === "Pick a character") {
@@ -74,10 +62,10 @@ function changeNameEvent(character) {
         const inputValue = nameDropdown2.value;
         const inputImage = document.getElementById("CharacterPic3")
 
-        for(i = 0; i < character.length; i++){
-            if(character[i].name === inputValue){
-                inputImage.src = character[i].img
-                displayCharacterDetails3(character)
+        for(i = 0; i < characterArr.length; i++){
+            if(characterArr[i].name === inputValue){
+                inputImage.src = characterArr[i].img
+                displayCharacterDetails(characterArr, name3)
             }
         }
         if (inputValue === "Pick a character") {
@@ -86,53 +74,29 @@ function changeNameEvent(character) {
     })
 }
 
-function addCharacterOptions2(character) {
-    const removeWalterArray = character.slice(1)
-    removeWalterArray.forEach(character => {
-        const characterOptions = document.createElement('option')
-        characterOptions.textContent = character.name
-        nameDropdown2.append(characterOptions);
-    })
-}
+const name1 = document.querySelector("div#Character1 h1")
+const name3 = document.querySelector("div#Character3 h1")
 
-function displayCharacterDetails1(character) {
-    const name = document.querySelector("div#Character1 h1")
-    name.textContent = character[i].name
+const displayCharacterDetails = (characterArr, name) => {
+    name.textContent = characterArr[i].name
     
     const ul = name.nextElementSibling
     const occupationLi = ul.querySelector(".Occupation")
-    occupationLi.textContent = `Occupation: ${character[i].occupation}`
+    occupationLi.textContent = `Occupation: ${characterArr[i].occupation}`
     
     const birthdayLi = ul.querySelector(".Birthday")
-    birthdayLi.textContent = `Birthday: ${character[i].birthday}`
+    birthdayLi.textContent = `Birthday: ${characterArr[i].birthday}`
 
     const actorLi = ul.querySelector(".Actor")
-    actorLi.textContent = `Actor Name: ${character[i].portrayed}`
+    actorLi.textContent = `Actor Name: ${characterArr[i].portrayed}`
 
     const seasonsLi = ul.querySelector(".Seasons")
-    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`
+    seasonsLi.textContent = `Season Appearances: ${characterArr[i].appearance}`
 }
 
+const walterImg = document.querySelector('img#walterImg')
 
-function displayCharacterDetails3(character) {
-    const name = document.querySelector("div#Character3 h1")
-    name.textContent = character[i].name
-    
-    const ul = name.nextElementSibling
-    const occupationLi = ul.querySelector(".Occupation")
-    occupationLi.textContent = `Occupation: ${character[i].occupation}`
-    
-    const birthdayLi = ul.querySelector(".Birthday")
-    birthdayLi.textContent = `Birthday: ${character[i].birthday}`
-
-    const actorLi = ul.querySelector(".Actor")
-    actorLi.textContent = `Actor Name: ${character[i].portrayed}`
-
-    const seasonsLi = ul.querySelector(".Seasons")
-    seasonsLi.textContent = `Season Appearances: ${character[i].appearance}`
-}
-
-function formSubmit() {
+const formSubmit = () => {
 
     // figure out alert for empty input fields
 
@@ -164,6 +128,10 @@ function formSubmit() {
     })
 }
 
+const init = () => {
+    getQuote();
+    getCharacters();
+    formSubmit()
+}
 
-
-formSubmit()
+init()
