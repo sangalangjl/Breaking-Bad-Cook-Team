@@ -97,9 +97,6 @@ const displayCharacterDetails = (characterArr, name) => {
 const walterImg = document.querySelector('img#walterImg')
 
 const formSubmit = () => {
-
-    // figure out alert for empty input fields
-
     const form = document.querySelector("form")
     form.addEventListener('submit', event => {
         event.preventDefault()
@@ -123,9 +120,22 @@ const formSubmit = () => {
         if(!!seasonsLi === true){
             seasonsLi.remove()
         }
-
-        event.target.reset()
+        formAlert(form)
     })
+}
+
+const formAlert = (form) => {
+    if (form[0].value === "") {
+        alert("Please fill out Your Name!")
+    } else if (form[1].value === "") {
+        alert("Please fill out Occupation!")
+    } else if (form[2].value === "") {
+        alert("Please fill out Birthday!")
+    } else if (form[3].value === "") {
+        alert("Please fill out Favorite Episode!")
+    } else if (form[4].value === "") {
+        alert("Please fill out Image!")
+    } else (form.reset())
 }
 
 const init = () => {
