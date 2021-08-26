@@ -17,6 +17,22 @@
       "FavoriteEpisode": "asdf",
       "Img": "https://static.wikia.nocookie.net/siivagunner/images/a/a2/Mr-krabs.png/revision/latest/top-crop/width/360/height/450?cb=20190614165147",
       "id": 2
+    },
+    {
+      "Name": "Kirby",
+      "Occupation": "Nintendo",
+      "Birthday": "10-4-1908",
+      "FavoriteEpisode": "Felinas",
+      "Img": "https://c.tenor.com/zJgNzCefrWAAAAAd/mini-kirby.gif",
+      "id": 3
+    },
+    {
+      "Name": "Kirby Jr",
+      "Occupation": "Xbox",
+      "Birthday": "1-2-3",
+      "FavoriteEpisode": "pilot",
+      "Img": "https://static.wikia.nocookie.net/ecccf5b8-89c1-4c14-b3cd-cd3d2343c849/scale-to-width/755",
+      "id": 4
     }
   ]
 }

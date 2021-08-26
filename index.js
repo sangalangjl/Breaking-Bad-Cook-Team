@@ -128,13 +128,13 @@ const formSubmit = () => {
             },
             body: JSON.stringify(newUserObj)
         }
-
         fetchDbJson(configObj)
         const newCookImg = document.createElement('img')
-        newCookImg.src = characterPic2.src;
+        newCookImg.src = img
 
         const pastCooksDiv = document.querySelector('#PastCooks')
         pastCooksDiv.append(newCookImg)
+        setDefaultCharacter2();
         formAlert(form)
     })
 }
@@ -169,6 +169,8 @@ const renderPastCooks = () => {
         submitArr.forEach((character) => {
             const img = document.createElement('img')
             img.src = character.Img
+            const deleteBtn = document.createElement('button')
+            pastCooksDiv.append(deleteBtn)
             pastCooksDiv.append(img)
         })
     })
@@ -203,9 +205,10 @@ const setDefaultCharacter2 = () => {
         const seasonsLi = actorLi.nextElementSibling
         if (!!mostRecentInput.appearance === true) {
             seasonsLi.textContent = `Seasons: ${mostRecentInput.appearance}`
-        } else {
+        } else if(seasonsLi === true) {
             seasonsLi.remove()
         }
+        else { console.log('yee')}
     })
 
 }
@@ -220,3 +223,7 @@ const init = () => {
 }
 
 init()
+
+// add event listener past cooks roster images
+// fetch data of dbjson
+// image click sorts data to specefic character
