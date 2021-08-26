@@ -106,7 +106,7 @@ const formSubmit = () => {
         const birthday = form[2].value
         const favoriteEpisode = form[3].value
         const img = form[4].value
-        
+
         const yourNameInput = document.querySelector("#WalterWhite h1")
         yourNameInput.textContent = name
 
@@ -120,7 +120,7 @@ const formSubmit = () => {
         actorLi.textContent = `Favorite Episode: ${favoriteEpisode}`
 
         walterImg.src = img;
-        
+
         const seasonsLi = actorLi.nextElementSibling
 
         if(!!seasonsLi === true){
@@ -134,6 +134,7 @@ const formSubmit = () => {
             FavoriteEpisode: favoriteEpisode,
             Img: img
         }
+
         const configObj = {
             method: "POST", 
             headers: {
@@ -152,8 +153,6 @@ const formSubmit = () => {
         formAlert(form)
     })
 }
-
-
 
 const fetchDbJson = (configObj) => {
     fetch('http://localhost:3000/characters', configObj)
@@ -175,7 +174,23 @@ const formAlert = (form) => {
     } else (form.reset())
 }
 
+const renderPastCooks = () => {
+    const pastCooksDiv = document.querySelector('#PastCooks')
+
+    fetch('http://localhost:3000/characters')
+    .then(respToJson)
+    .then(submitArr => {
+        console.log(submitArr)
+        submitArr.forEach((character) => {
+            const img = document.createElement('img')
+            img.src = character.Img
+            pastCooksDiv.append(img)
+        })
+    })
+}
+
 const init = () => {
+    renderPastCooks()
     getQuote();
     getCharacters();
     formSubmit()

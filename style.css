@@ -128,3 +128,8 @@ select {
     font-size: 15px;
     border-radius: 2em;
 }
+
+#PastCooks img {
+    width: 200px;
+    height: auto;
+}

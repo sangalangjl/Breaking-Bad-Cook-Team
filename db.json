@@ -1,28 +1,28 @@
 {
   "characters": [
     {
-      "Name": "Perrin Goldeneyes",
-      "Occupation": "Blacksmith, General",
-      "Birthday": "Unknown",
-      "FavoriteEpisode": "The Fly",
-      "Img": "https://static.wikia.nocookie.net/wot/images/b/bd/Perrin_aybara_wolf_king_by_reddera-d993otl.jpg/revision/latest?cb=20160605153745",
-      "id": 1
-    },
-    {
-      "Name": "",
-      "Occupation": "",
-      "Birthday": "",
-      "FavoriteEpisode": "",
-      "Img": "",
-      "id": 2
-    },
-    {
-      "Name": "",
-      "Occupation": "",
-      "Birthday": "",
-      "FavoriteEpisode": "",
-      "Img": "",
-      "id": 3
+      "char_id": 1,
+      "name": "Walter White",
+      "birthday": "09-07-1958",
+      "occupation": [
+        "High School Chemistry Teacher",
+        "Meth King Pin"
+      ],
+      "img": "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",
+      "status": "Presumed dead",
+      "nickname": "Heisenberg",
+      "appearance": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "portrayed": "Bryan Cranston",
+      "category": "Breaking Bad",
+      "better_call_saul_appearance": [
+        
+      ]
     },
     {
       "Name": "Moiraine Damodred",
@@ -30,15 +30,23 @@
       "Birthday": "Unknown",
       "FavoriteEpisode": "Lord of Chaos",
       "Img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/867d93ec-30d1-40b1-9fe3-44bb8ba84e45/d26g41a-d409ec4c-af19-4149-a677-425406735f96.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg2N2Q5M2VjLTMwZDEtNDBiMS05ZmUzLTQ0YmI4YmE4NGU0NVwvZDI2ZzQxYS1kNDA5ZWM0Yy1hZjE5LTQxNDktYTY3Ny00MjU0MDY3MzVmOTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mII71Iu0vxw02kijgXMF-ri-fw6ni8mEA-SylrsScz0",
-      "id": 4
+      "id": 1
     },
     {
-      "Name": "Gandalf ",
-      "Occupation": "Wizard",
-      "Birthday": "Unknown",
-      "FavoriteEpisode": "Two Towers",
-      "Img": "https://static.wikia.nocookie.net/warner-bros-entertainment/images/b/b1/5055C313-E3B0-43E7-8EDB-0EF9ABA16595.jpeg/revision/latest?cb=20180424024627",
-      "id": 5
+      "Name": "John",
+      "Occupation": "Teacher",
+      "Birthday": "04/29/1997",
+      "FavoriteEpisode": "Pilot",
+      "Img": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png",
+      "id": 2
+    },
+    {
+      "Name": "Patrick",
+      "Occupation": "clown",
+      "Birthday": "65564",
+      "FavoriteEpisode": "5646512",
+      "Img": "https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png",
+      "id": 3
     }
   ]
 }
