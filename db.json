@@ -27,12 +27,20 @@
       "id": 3
     },
     {
-      "Name": "Kirby Jr",
-      "Occupation": "Xbox",
-      "Birthday": "1-2-3",
-      "FavoriteEpisode": "pilot",
-      "Img": "https://static.wikia.nocookie.net/ecccf5b8-89c1-4c14-b3cd-cd3d2343c849/scale-to-width/755",
+      "Name": "sgdfg",
+      "Occupation": "sdfg",
+      "Birthday": "sdfg",
+      "FavoriteEpisode": "sdfg",
+      "Img": "https://media.giphy.com/media/3ohzAr9i3UTMt0HjxK/giphy.gif",
       "id": 4
+    },
+    {
+      "Name": "df",
+      "Occupation": "adsf",
+      "Birthday": "adfs",
+      "FavoriteEpisode": "adf",
+      "Img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoyL-gnWTEU7TBEtIGbq4VOnQBVZRkv0KOzw&usqp=CAU",
+      "id": 5
     }
   ]
 }

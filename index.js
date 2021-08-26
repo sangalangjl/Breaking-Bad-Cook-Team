@@ -96,6 +96,8 @@ const displayCharacterDetails = (characterArr, name) => {
 
 const characterPic2 = document.querySelector('img#CharacterPic2')
 
+const pastCooksDiv = document.querySelector('#PastCooks')
+
 const formSubmit = () => {
     const form = document.querySelector("form")
     form.addEventListener('submit', event => {
@@ -129,11 +131,11 @@ const formSubmit = () => {
             body: JSON.stringify(newUserObj)
         }
         fetchDbJson(configObj)
-        const newCookImg = document.createElement('img')
-        newCookImg.src = img
+        renderCooks(newUserObj)
+        // const newCookImg = document.createElement('img')
+        // newCookImg.src = img
 
-        const pastCooksDiv = document.querySelector('#PastCooks')
-        pastCooksDiv.append(newCookImg)
+        // pastCooksDiv.append(newCookImg)
         setDefaultCharacter2();
         formAlert(form)
     })
@@ -160,19 +162,42 @@ const formAlert = (form) => {
 }
 
 const renderPastCooks = () => {
-    const pastCooksDiv = document.querySelector('#PastCooks')
-
     fetch('http://localhost:3000/characters')
     .then(respToJson)
-    .then(submitArr => {
-        console.log(submitArr)
-        submitArr.forEach((character) => {
+    .then(submitArr => renderCooks(submitArr))
+}
+
+const renderCooks = (submitArr) => {
+    if (Array.isArray(submitArr)) {
+            submitArr.forEach((character) => {
+            const newDiv = document.createElement('div')
+            newDiv.id = character.id
             const img = document.createElement('img')
-            img.src = character.Img
             const deleteBtn = document.createElement('button')
-            pastCooksDiv.append(deleteBtn)
-            pastCooksDiv.append(img)
+            deleteBtn.textContent = "Delete"
+            newDiv.append(img)
+            newDiv.append(deleteBtn)
+            img.src = character.Img
+            pastCooksDiv.append(newDiv)
+            deletePastCook(deleteBtn, newDiv)
         })
+    } else {
+        const newDiv = document.createElement('div')
+        newDiv.id = submitArr.id
+        const img = document.createElement('img')
+        const deleteBtn = document.createElement('button')
+        deleteBtn.textContent = "Delete"
+        newDiv.append(img)
+        newDiv.append(deleteBtn)
+        img.src = submitArr.Img
+        pastCooksDiv.append(newDiv)
+        deletePastCook(deleteBtn, newDiv)
+    }
+}
+
+const deletePastCook = (button, div) => {
+    button.addEventListener('click', event => {
+        div.remove()
     })
 }
 
@@ -208,7 +233,7 @@ const setDefaultCharacter2 = () => {
         } else if(seasonsLi === true) {
             seasonsLi.remove()
         }
-        else { console.log('yee')}
+        else {console.log('yee')}
     })
 
 }
