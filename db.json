@@ -20,9 +20,7 @@
       ],
       "portrayed": "Bryan Cranston",
       "category": "Breaking Bad",
-      "better_call_saul_appearance": [
-        
-      ]
+      "better_call_saul_appearance": []
     },
     {
       "Name": "Moiraine Damodred",
@@ -47,6 +45,46 @@
       "FavoriteEpisode": "5646512",
       "Img": "https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png",
       "id": 3
+    },
+    {
+      "Name": "Matrim Cauthon",
+      "Occupation": "General ",
+      "Birthday": "A long time ago",
+      "FavoriteEpisode": "Fires of Heaven",
+      "Img": "https://cdnb.artstation.com/p/assets/images/images/008/968/805/medium/cagdas-demiralp-matrimcauthon-cagdasdemiralp.jpg?1516367112",
+      "id": 4
+    },
+    {
+      "Name": "Thom Merrillin",
+      "Occupation": "Gleeman",
+      "Birthday": "Long time ago",
+      "FavoriteEpisode": "Felina",
+      "Img": "https://static.wikia.nocookie.net/wot/images/a/a6/Thom_rpg.jpg/revision/latest/scale-to-width-down/299?cb=20110517023710",
+      "id": 5
+    },
+    {
+      "Name": "Egwene Al Vere",
+      "Occupation": "Amyrlin Seat",
+      "Birthday": "Third Age",
+      "FavoriteEpisode": "Knife of Dreams",
+      "Img": "https://static.wikia.nocookie.net/wot/images/e/e2/Wot-_egwene.jpg/revision/latest/top-crop/width/360/height/450?cb=20160605153945",
+      "id": 6
+    },
+    {
+      "Name": "Squidward",
+      "Occupation": "Clarinet Player, Krusty Krab",
+      "Birthday": "200 BC",
+      "FavoriteEpisode": "Bubbles",
+      "Img": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Squidward_Tentacles.svg/1200px-Squidward_Tentacles.svg.png",
+      "id": 7
+    },
+    {
+      "Name": "",
+      "Occupation": "",
+      "Birthday": "",
+      "FavoriteEpisode": "",
+      "Img": "",
+      "id": 8
     }
   ]
 }

@@ -94,7 +94,7 @@ const displayCharacterDetails = (characterArr, name) => {
     seasonsLi.textContent = `Season Appearances: ${characterArr[i].appearance}`
 }
 
-const walterImg = document.querySelector('img#walterImg')
+const characterPic2 = document.querySelector('img#CharacterPic2')
 
 const formSubmit = () => {
     const form = document.querySelector("form")
@@ -107,10 +107,10 @@ const formSubmit = () => {
         const favoriteEpisode = form[3].value
         const img = form[4].value
 
-        const yourNameInput = document.querySelector("#WalterWhite h1")
+        const yourNameInput = document.querySelector("#Character2 h1")
         yourNameInput.textContent = name
 
-        const occupationLi = document.querySelector("#WalterWhite li")
+        const occupationLi = document.querySelector("#Character2 li")
         occupationLi.textContent = `Occupation: ${occupation}`
 
         const birthdayLi = occupationLi.nextElementSibling
@@ -119,7 +119,7 @@ const formSubmit = () => {
         const actorLi = birthdayLi.nextElementSibling
         actorLi.textContent = `Favorite Episode: ${favoriteEpisode}`
 
-        walterImg.src = img;
+        characterPic2.src = img;
 
         const seasonsLi = actorLi.nextElementSibling
 
@@ -146,7 +146,7 @@ const formSubmit = () => {
 
         fetchDbJson(configObj)
         const newCookImg = document.createElement('img')
-        newCookImg.src = walterImg.src;
+        newCookImg.src = characterPic2.src;
 
         const pastCooksDiv = document.querySelector('#PastCooks')
         pastCooksDiv.append(newCookImg)
@@ -188,6 +188,14 @@ const renderPastCooks = () => {
         })
     })
 }
+
+const setDefaultImg = () => {
+    fetch('http://localhost:3000/characters')
+    .then(respToJson)
+    .then(submitArr => characterPic2.src = submitArr.slice(-1)[0].Img)
+}
+
+setDefaultImg()
 
 const init = () => {
     renderPastCooks()
