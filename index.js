@@ -131,7 +131,7 @@ const formSubmit = () => {
             body: JSON.stringify(newUserObj)
         }
         fetchDbJson(configObj)
-        renderCooks(newUserObj)
+        renderCooks
         // const newCookImg = document.createElement('img')
         // newCookImg.src = img
 
@@ -164,40 +164,30 @@ const formAlert = (form) => {
 const renderPastCooks = () => {
     fetch('http://localhost:3000/characters')
     .then(respToJson)
-    .then(submitArr => renderCooks(submitArr))
+    .then(submitArr => submitArr.forEach(renderCooks))
 }
 
-const renderCooks = (submitArr) => {
-    if (Array.isArray(submitArr)) {
-            submitArr.forEach((character) => {
-            const newDiv = document.createElement('div')
-            newDiv.id = character.id
-            const img = document.createElement('img')
-            const deleteBtn = document.createElement('button')
-            deleteBtn.textContent = "Delete"
-            newDiv.append(img)
-            newDiv.append(deleteBtn)
-            img.src = character.Img
-            pastCooksDiv.append(newDiv)
-            deletePastCook(deleteBtn, newDiv)
-        })
-    } else {
+const renderCooks = (element) => {
         const newDiv = document.createElement('div')
-        newDiv.id = submitArr.id
+        newDiv.id = element.id
         const img = document.createElement('img')
         const deleteBtn = document.createElement('button')
         deleteBtn.textContent = "Delete"
         newDiv.append(img)
         newDiv.append(deleteBtn)
-        img.src = submitArr.Img
+        img.src = element.Img
         pastCooksDiv.append(newDiv)
         deletePastCook(deleteBtn, newDiv)
-    }
 }
 
 const deletePastCook = (button, div) => {
     button.addEventListener('click', event => {
         div.remove()
+
+        fetch(`http://localhost:3000/characters/${div.id}`, {
+            method: "DELETE"
+        })
+        
     })
 }
 
