@@ -31,6 +31,14 @@
       "FavoriteEpisode": "Lord of Chaos",
       "Img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/867d93ec-30d1-40b1-9fe3-44bb8ba84e45/d26g41a-d409ec4c-af19-4149-a677-425406735f96.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg2N2Q5M2VjLTMwZDEtNDBiMS05ZmUzLTQ0YmI4YmE4NGU0NVwvZDI2ZzQxYS1kNDA5ZWM0Yy1hZjE5LTQxNDktYTY3Ny00MjU0MDY3MzVmOTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mII71Iu0vxw02kijgXMF-ri-fw6ni8mEA-SylrsScz0",
       "id": 4
+    },
+    {
+      "Name": "Gandalf ",
+      "Occupation": "Wizard",
+      "Birthday": "Unknown",
+      "FavoriteEpisode": "Two Towers",
+      "Img": "https://static.wikia.nocookie.net/warner-bros-entertainment/images/b/b1/5055C313-E3B0-43E7-8EDB-0EF9ABA16595.jpeg/revision/latest?cb=20180424024627",
+      "id": 5
     }
   ]
 }
