@@ -107,25 +107,10 @@ const formSubmit = () => {
         const favoriteEpisode = form[3].value
         const img = form[4].value
 
-        const yourNameInput = document.querySelector("#Character2 h1")
-        yourNameInput.textContent = name
-
-        const occupationLi = document.querySelector("#Character2 li")
-        occupationLi.textContent = `Occupation: ${occupation}`
-
-        const birthdayLi = occupationLi.nextElementSibling
-        birthdayLi.textContent = `Birthday: ${birthday}`
-
-        const actorLi = birthdayLi.nextElementSibling
-        actorLi.textContent = `Favorite Episode: ${favoriteEpisode}`
-
-        characterPic2.src = img;
-
-        const seasonsLi = actorLi.nextElementSibling
-
-        if(!!seasonsLi === true){
-            seasonsLi.remove()
-        }
+        // const seasonsLi = actorLi.nextElementSibling
+        // if(!!seasonsLi === true){
+        //     seasonsLi.remove()
+        // }
 
         const newUserObj = {
             Name: name,
@@ -189,19 +174,49 @@ const renderPastCooks = () => {
     })
 }
 
-const setDefaultImg = () => {
+const setDefaultCharacter2 = () => {
     fetch('http://localhost:3000/characters')
     .then(respToJson)
-    .then(submitArr => characterPic2.src = submitArr.slice(-1)[0].Img)
+    .then(submitArr => {
+        const mostRecentInput = submitArr.slice(-1)[0]
+        characterPic2.src = mostRecentInput.Img
+
+        const form = document.querySelector("form")
+
+        const yourNameInput = document.querySelector("#Character2 h1")
+        yourNameInput.textContent = mostRecentInput.Name
+
+        const occupationLi = document.querySelector("#Character2 li")
+        occupationLi.textContent = `Occupation: ${mostRecentInput.Occupation}`
+
+        const birthdayLi = occupationLi.nextElementSibling
+        birthdayLi.textContent = `Birthday: ${mostRecentInput.Birthday}`
+
+        const actorLi = birthdayLi.nextElementSibling
+
+        if (!!mostRecentInput.portrayed === true) {
+            actorLi.textContent = `Actor Name: ${mostRecentInput.portrayed}`
+        } else {
+            actorLi.textContent = `Favorite Episode: ${mostRecentInput.FavoriteEpisode}`
+        }
+        
+        const seasonsLi = actorLi.nextElementSibling
+        if (!!mostRecentInput.appearance === true) {
+            seasonsLi.textContent = `Seasons: ${mostRecentInput.appearance}`
+        } else {
+            seasonsLi.remove()
+        }
+    })
+
 }
 
-setDefaultImg()
+setDefaultCharacter2()
 
 const init = () => {
+    formSubmit()
     renderPastCooks()
     getQuote();
     getCharacters();
-    formSubmit()
 }
 
 init()
