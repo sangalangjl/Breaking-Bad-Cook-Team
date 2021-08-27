@@ -4,22 +4,21 @@ const jsonURL = "http://localhost:3000/characters"
 
 const respToJson = resp => resp.json()
 
-const getQuote = () => {
-    fetch(quotesURL)
-    .then(respToJson)
-    .then(randomQuote => createQuote(randomQuote))
-}
-
-const createQuote = randomQuote => {
+const createQuote = () => {
     const button = document.querySelector("#getRandomQuote")
     const selectQuote = document.querySelector("p#quote")
     const selectAuthor = document.querySelector("p#author")
     button.addEventListener('click', event => {
-        getQuote();
+        fetch(quotesURL)
+        .then(respToJson)
+        .then(randomQuote => {
+        alert('Beware of explicit content')
         selectQuote.textContent = `"${randomQuote[0].quote}"`
         selectAuthor.textContent = `-${randomQuote[0].author}`
+        })
     })
 }
+
 
 const getCharacters = () => {
     fetch(charactersURL)
@@ -236,7 +235,7 @@ const init = () => {
     formSubmit();
     renderPastCooks();
     setDefaultCharacter2();
-    getQuote();
+    createQuote();
     getCharacters();
 }
 
