@@ -1,5 +1,6 @@
 const charactersURL = "https://breakingbadapi.com/api/characters"
 const quotesURL = "https://breakingbadapi.com/api/quote/random"
+const jsonURL = "http://localhost:3000/characters"
 
 const respToJson = resp => resp.json()
 
@@ -98,6 +99,7 @@ const characterPic2 = document.querySelector('img#CharacterPic2')
 
 const pastCooksDiv = document.querySelector('#PastCooks')
 
+
 const formSubmit = () => {
     const form = document.querySelector("form")
     form.addEventListener('submit', event => {
@@ -108,11 +110,6 @@ const formSubmit = () => {
         const birthday = form[2].value
         const favoriteEpisode = form[3].value
         const img = form[4].value
-
-        // const seasonsLi = actorLi.nextElementSibling
-        // if(!!seasonsLi === true){
-        //     seasonsLi.remove()
-        // }
 
         const newUserObj = {
             Name: name,
@@ -133,16 +130,12 @@ const formSubmit = () => {
         fetchDbJson(configObj)
         setDefaultCharacter2();
         renderCooks(newUserObj)
-        // const newCookImg = document.createElement('img')
-        // newCookImg.src = img
-
-        // pastCooksDiv.append(newCoßokImg)
         formAlert(form)
     })
 }
 
 const fetchDbJson = (configObj) => {
-    fetch('http://localhost:3000/characters', configObj)
+    fetch(jsonURL, configObj)
     .then(respToJson)
     .then(submitArr => console.log(submitArr))
 }
@@ -162,7 +155,7 @@ const formAlert = (form) => {
 }
 
 const renderPastCooks = () => {
-    fetch('http://localhost:3000/characters')
+    fetch(jsonURL)
     .then(respToJson)
     .then(submitArr => submitArr.forEach(renderCooks))
 }
@@ -183,21 +176,20 @@ const renderCooks = (element) => {
 const deletePastCook = (button, div) => {
     button.addEventListener('click', event => {
         div.remove()
+        setDefaultCharacter2()
 
-        fetch(`http://localhost:3000/characters/${div.id}`, {
+        fetch(`${jsonURL}/${div.id}`, {
             method: "DELETE"
         })
     })
 }
 
 const setDefaultCharacter2 = () => {
-    fetch('http://localhost:3000/characters')
+    fetch(jsonURL)
     .then(respToJson)
     .then(submitArr => {
         const mostRecentInput = submitArr.slice(-1)[0]
         characterPic2.src = mostRecentInput.Img
-
-        const form = document.querySelector("form")
 
         const yourNameInput = document.querySelector("#Character2 h1")
         yourNameInput.textContent = mostRecentInput.Name
@@ -222,24 +214,15 @@ const setDefaultCharacter2 = () => {
         } else if(!!seasonsLi === true) {
             seasonsLi.remove()
         }
-        else {console.log('yee')}
     })
-
 }
 
-setDefaultCharacter2()
-
 const init = () => {
-    formSubmit()
-    renderPastCooks()
+    formSubmit();
+    renderPastCooks();
+    setDefaultCharacter2();
     getQuote();
     getCharacters();
 }
 
 init()
-
-// add event listener past cooks roster images
-// fetch data of dbjson
-// image click sorts data to specefic character
-
-//hello
