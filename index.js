@@ -171,12 +171,23 @@ const renderCooks = (element) => {
         img.src = element.Img
         pastCooksDiv.append(newDiv)
         deletePastCook(deleteBtn, newDiv)
+
+        newDiv.addEventListener('click', event => {
+            fetch(`${jsonURL}/${newDiv.id}`)
+            .then(respToJson)
+            .then(character => characterDetailsImg(character))
+        })
 }
 
 const deletePastCook = (button, div) => {
     button.addEventListener('click', event => {
         div.remove()
-        setDefaultCharacter2()
+        fetch(jsonURL)
+        .then(respToJson)
+        .then(submitArr => {
+            const mostRecentInput = submitArr.slice(-1)[0]
+            setDefaultCharacter2(mostRecentInput)
+        })
 
         fetch(`${jsonURL}/${div.id}`, {
             method: "DELETE"
@@ -189,6 +200,11 @@ const setDefaultCharacter2 = () => {
     .then(respToJson)
     .then(submitArr => {
         const mostRecentInput = submitArr.slice(-1)[0]
+        characterDetailsImg(mostRecentInput)
+    })
+}
+
+const characterDetailsImg = (mostRecentInput) => {
         characterPic2.src = mostRecentInput.Img
 
         const yourNameInput = document.querySelector("#Character2 h1")
@@ -214,7 +230,6 @@ const setDefaultCharacter2 = () => {
         } else if(!!seasonsLi === true) {
             seasonsLi.remove()
         }
-    })
 }
 
 const init = () => {
