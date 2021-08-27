@@ -131,12 +131,12 @@ const formSubmit = () => {
             body: JSON.stringify(newUserObj)
         }
         fetchDbJson(configObj)
-        renderCooks
+        setDefaultCharacter2();
+        renderCooks(newUserObj)
         // const newCookImg = document.createElement('img')
         // newCookImg.src = img
 
-        // pastCooksDiv.append(newCookImg)
-        setDefaultCharacter2();
+        // pastCooksDiv.append(newCoßokImg)
         formAlert(form)
     })
 }
@@ -187,7 +187,6 @@ const deletePastCook = (button, div) => {
         fetch(`http://localhost:3000/characters/${div.id}`, {
             method: "DELETE"
         })
-        
     })
 }
 
@@ -220,7 +219,7 @@ const setDefaultCharacter2 = () => {
         const seasonsLi = actorLi.nextElementSibling
         if (!!mostRecentInput.appearance === true) {
             seasonsLi.textContent = `Seasons: ${mostRecentInput.appearance}`
-        } else if(seasonsLi === true) {
+        } else if(!!seasonsLi === true) {
             seasonsLi.remove()
         }
         else {console.log('yee')}

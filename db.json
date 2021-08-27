@@ -1,3 +1,28 @@
 {
-  "characters": []
+  "characters": [
+    {
+      "Name": "Harry Potter",
+      "Occupation": "Wizard",
+      "Birthday": "Unknown",
+      "FavoriteEpisode": "aklsdjflakjd",
+      "Img": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d7/Harry_Potter_character_poster.jpg/220px-Harry_Potter_character_poster.jpg",
+      "id": 1
+    },
+    {
+      "Name": "asdf",
+      "Occupation": "jh",
+      "Birthday": "kjh",
+      "FavoriteEpisode": "kjh",
+      "Img": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Hermione_Granger_poster.jpg/220px-Hermione_Granger_poster.jpg",
+      "id": 2
+    },
+    {
+      "Name": "Ron Weasley",
+      "Occupation": "Clown",
+      "Birthday": "kjhkl",
+      "FavoriteEpisode": "jkh",
+      "Img": "https://imgix.bustle.com/rehost/2016/9/13/a4747580-a52e-4dd7-a208-98a1401f0736.jpg?w=800&fit=crop&crop=faces&auto=format%2Ccompress",
+      "id": 3
+    }
+  ]
 }
