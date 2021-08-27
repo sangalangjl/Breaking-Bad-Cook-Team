@@ -23,6 +23,14 @@
       "FavoriteEpisode": "jkh",
       "Img": "https://imgix.bustle.com/rehost/2016/9/13/a4747580-a52e-4dd7-a208-98a1401f0736.jpg?w=800&fit=crop&crop=faces&auto=format%2Ccompress",
       "id": 3
+    },
+    {
+      "Name": "adsf",
+      "Occupation": "asdf",
+      "Birthday": "adsf",
+      "FavoriteEpisode": "adsf",
+      "Img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSapIMHj2ayu-cB2K0XlKHWEb5BUNHTTFhZnw&usqp=CAU",
+      "id": 4
     }
   ]
 }

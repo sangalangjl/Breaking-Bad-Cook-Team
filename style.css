@@ -129,7 +129,30 @@ select {
     border-radius: 2em;
 }
 
+#PastCooks {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
 #PastCooks img {
     width: 200px;
     height: auto;
+    padding: 1px;
+    flex-shrink: 2;
 }
+
+h2 {
+    text-align: center;
+}
+
+#PastCooks div {
+    border: solid;
+    width: 200px;
+    height: auto;
+    margin: 2em;
+    padding: 10px;;
+}
+
